@@ -41,7 +41,7 @@ function ParkingSlots({navigation, route}: formTypes): JSX.Element {
           {parkigArray.map((ele: parkingData, index: number) => {
             if(!ele.isRegistered){
               return (
-                <TouchableOpacity key={index} onPress={() => onPressofParkingSlot(index)}>
+                <TouchableOpacity key={index} onPress={() => onPressofParkingSlot(index)} testID={`parkingPress${index}`}>
                   <View
                     key={index}
                     style={{
@@ -60,7 +60,7 @@ function ParkingSlots({navigation, route}: formTypes): JSX.Element {
               )
             }else{
               return(
-                <TouchableOpacity key={index} onPress={() => onPressPriceCaluclate(index)}>
+                <TouchableOpacity key={index} onPress={() => onPressPriceCaluclate(index)} testID={`pricepress${index}`}>
                   <View
                     key={index}
                     style={{

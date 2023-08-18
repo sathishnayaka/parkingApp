@@ -53,14 +53,14 @@ function Registration({navigation,route}: formTypes): JSX.Element {
           onChangeText={onChangeText}
           value={vehicleNumber}
           placeholder="Please enter vechile registration number"
-          data-testid="text-input"
+          testID="text-input"
         />
         <Button
           title="register"
           onPress={handleRegistration}
           disabled={vehicleNumber === '' ? true : false}
         //   onPress={onPressSubmit}
-          data-testid="register-button"
+          testID="register-button"
         />
       </View>
     </SafeAreaView>
