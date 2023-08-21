@@ -8,6 +8,7 @@ import {
   Button,
   Text,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from './redux/rootReducer';
@@ -32,10 +33,22 @@ function ParkingSlots({navigation, route}: formTypes): JSX.Element {
   const onPressPriceCaluclate = (index:number) =>{
     navigation.navigate('Price-details', {index})
   }
+
+  const genrateRandomIndex = () => {
+    const x=0;
+    const y = parkigArray.length;
+    const range = y-x;
+    const index = Math.floor(Math.random() * range);
+    if(parkigArray[index].isRegistered){
+      genrateRandomIndex();
+    }
+    onPressofParkingSlot(index);
+
+  }
   
   return (
     <SafeAreaView>
-      <Button title="Select Random parking Area" />
+      <Button title="Select Random parking Area" onPress={genrateRandomIndex} testID='random'/>
       <ScrollView>
         <View style={styles.sectionContainer}>
           {parkigArray.map((ele: parkingData, index: number) => {

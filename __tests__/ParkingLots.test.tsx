@@ -54,5 +54,7 @@ describe('Parking Booking', () => {
     const pricePress = screen.getByTestId('pricepress1');
     fireEvent.press(pricePress);
     expect(navigation.navigate).toHaveBeenCalled();
+    const radomButton = screen.getByTestId('random');
+    fireEvent.press(radomButton);
   });
 });
